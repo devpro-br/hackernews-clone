@@ -2,11 +2,23 @@
 
 Seja bem vindo(a) à Formação FULLSTACK da [Confraria DevPro](https://pythonpro.com.br/)
 
-Não esqueça de participar das discuções via [Issues](https://github.com/confraria-devpro/hackernews-clone/issues) e deixar uma estrela no projeto 🌟
+Não esqueça:
+
+- Participar das [Discussões](https://github.com/confraria-devpro/hackernews-clone/discussions)
+- Participar das [Issues](https://github.com/confraria-devpro/hackernews-clone/issues)
+- Deixar uma estrela no projeto 🌟
+
+## Curso
+
+https://plataforma.dev.pro.br/42242-formacao-fullstack
 
 ## Desafios para os alunos
 
 - Melhorar a profundidade e abrangência em tecnologia criando um produto do zero de forma divertida e colaborativa
+
+### Aula 1
+
+- 2021-09-30 20h [Veja aqui os tópicos](https://github.com/confraria-devpro/hackernews-clone/issues/8)
 
 ## Objetivos para as próximas semanas
 
@@ -53,3 +65,5 @@ Não esqueça de participar das discuções via [Issues](https://github.com/conf
 - Milestone 5:
   - [] Containers
   - [] Deploy Digital Ocean
+
+> Este modelo de curso foi inspirado em um Canal de React do Filipe e também algumas dinâmicas que vi em Aulas do Eric que fala de NodeJS
