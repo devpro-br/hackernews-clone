@@ -1,6 +1,6 @@
 name: Linter para validar padrão de código
 
-on: [pull_request]
+on: [pull_request, push]
 
 jobs:
   lint-styles:
