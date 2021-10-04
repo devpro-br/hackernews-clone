@@ -1,28 +1,22 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Lista de notícias" :news="news" />
-  </div>
+  <hello-world msg="Lista de notícias" :news="news" />
 </template>
 
 <script>
 import ApiNews from '@/api/news.api.js'
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '../components/HelloWorld'
 
 export default {
   data: () => ({
     news: [],
   }),
-  components: {
-    HelloWorld,
-  },
-  methods: {},
   created() {
     ApiNews.list().then((data) => {
       this.news = data
     })
   },
+  components: {
+    HelloWorld,
+  },
 }
 </script>
-
-<style scoped lang="scss"></style>
