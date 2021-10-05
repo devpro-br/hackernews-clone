@@ -1,10 +1,12 @@
 <template>
-  <hello-world msg="Lista de notícias" :news="news" />
+  <v-container>
+    <hello-world msg="Lista de notícias" :news="news" />
+  </v-container>
 </template>
 
 <script>
 import ApiNews from '@/api/news.api.js'
-import HelloWorld from '../components/HelloWorld'
+import HelloWorld from '@/components/HelloWorld'
 
 export default {
   data: () => ({
