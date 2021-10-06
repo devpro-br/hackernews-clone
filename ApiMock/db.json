@@ -2,7 +2,19 @@
   "news": [
     {
       "id": 1,
-      "title": "Confraria DevPro faz setup de projeto VueJS"
+      "title": "Confraria DevPro faz setup de projeto VueJS",
+      "author": "huogerac",
+      "reactions": 42,
+      "comments": 42,
+      "date": "2021-10-05 21:42:26"
+    },
+    {
+      "id": 2,
+      "title": "Image Sharing. No Bullshit",
+      "author": "vyrotek",
+      "reactions": 149,
+      "comments": 112,
+      "date": "2021-10-05 21:32:23"
     }
   ]
 }
