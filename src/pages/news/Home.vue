@@ -1,12 +1,13 @@
 <template>
   <v-container>
-    <hello-world msg="Lista de notícias" :news="news" />
+    <h1>Lista de notícias</h1>
+    <news-list :news="news" />
   </v-container>
 </template>
 
 <script>
 import ApiNews from '@/api/news.api.js'
-import HelloWorld from '@/components/HelloWorld'
+import NewsList from '@/components/NewsList'
 
 export default {
   data: () => ({
@@ -18,7 +19,7 @@ export default {
     })
   },
   components: {
-    HelloWorld,
+    NewsList,
   },
 }
 </script>
