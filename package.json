@@ -7,10 +7,11 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --no-fix",
     "lint:fix": "vue-cli-service lint",
-    "mock": "node ApiMock/server"
+    "mock": "node api/mock/server"
   },
   "dependencies": {
     "axios": "^0.21.4",
+    "ci": "^2.1.1",
     "core-js": "^3.6.5",
     "moment": "^2.29.1",
     "vue": "^2.6.11",
@@ -24,16 +25,23 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^6.2.2",
+    "express": "^4.17.1",
+    "express-openapi-validator": "^3.0.0-alpha.4",
     "json-server": "^0.16.3",
+    "morgan": "^1.9.1",
     "node-sass": "^4.12.0",
     "prettier": "^2.2.1",
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
+    "swagger-ui-express": "^4.1.6",
     "vue-cli-plugin-vuetify": "~2.4.2",
     "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.7.0"
+    "vuetify-loader": "^1.7.0",
+    "yamljs": "^0.3.0"
   }
 }

@@ -1,0 +1,43 @@
+openapi: 3.0.2
+
+info:
+  version: 0.0.1
+  title: Hackernews Mock API
+  description: Mock API
+
+paths:
+  /api/news:
+    get:
+      operationId: hackernews.api.news.list_news
+      summary: Returns the latest news
+      tags:
+        - News
+
+      responses:
+        200:
+          description: The lastest news
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/News'
+
+components:
+  schemas:
+    News:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 42
+        title:
+          type: string
+          example: Python is a great option for backend and APIs
+        description:
+          type: string
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          example: 2021-01-11T11:32:28Z
