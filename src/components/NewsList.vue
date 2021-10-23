@@ -7,7 +7,7 @@
             {{ item.title }}
           </v-list-item-title>
           <v-list-item-subtitle
-            >{{ item.reactions }} pontos by {{ item.author }} |
+            >{{ item.reactions }} pontos by {{ item.author.name }} |
             {{ item.date | time }} |
             {{ item.comments }} comentários</v-list-item-subtitle
           >

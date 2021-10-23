@@ -1,18 +1,39 @@
 [
   {
-    "id": 1,
+    "author": {
+      "avatar": "https://avatars.githubusercontent.com/u/962233?v=4",
+      "id": 1,
+      "name": "huogerac"
+    },
+    "created_at": "2021-01-11T11:32:28+00:00",
+    "description": "string",
+    "id": 42,
     "title": "Confraria DevPro faz setup de projeto VueJS",
-    "author": "huogerac",
     "reactions": 42,
-    "comments": 42,
-    "date": "2021-10-05 21:42:26"
+    "comments": 42
   },
   {
-    "id": 2,
+    "author": {
+      "avatar": "http://example.com/img/avatar/jose_thumb.png",
+      "id": 2,
+      "name": "John Doe"
+    },
+    "created_at": "2021-01-11T11:32:28+00:00",
+    "description": "string",
+    "id": 42,
+    "title": "Python is a great option for backend and APIs"
+  },
+  {
+    "author": {
+      "avatar": "http://example.com/img/avatar/jose_thumb.png",
+      "id": 3,
+      "name": "vyrotek"
+    },
+    "created_at": "2021-10-05T21:32:23+00:00",
+    "description": "string",
+    "id": 42,
     "title": "Image Sharing. No Bullshit",
-    "author": "vyrotek",
     "reactions": 149,
-    "comments": 112,
-    "date": "2021-10-05 21:32:23"
+    "comments": 112
   }
 ]
