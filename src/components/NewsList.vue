@@ -1,21 +1,20 @@
 <template>
-  <v-list two-line>
-    <template v-for="(item, index) in news">
-      <v-list-item :key="item.id">
+  <div>
+    <v-list>
+      <v-list-item v-for="item in news" :key="item.id">
         <v-list-item-content>
           <v-list-item-title>
-            {{ item.title }}
+            #{{ item.id }} {{ item.title }}
           </v-list-item-title>
           <v-list-item-subtitle
             >{{ item.reactions }} pontos by {{ item.author.name }} |
             {{ item.date | time }} |
-            {{ item.comments }} comentários</v-list-item-subtitle
+            {{ item.comments_count }} comentários</v-list-item-subtitle
           >
         </v-list-item-content>
       </v-list-item>
-      <v-divider v-if="index < news.length - 1" :key="index"></v-divider>
-    </template>
-  </v-list>
+    </v-list>
+  </div>
 </template>
 
 <script>
@@ -23,7 +22,7 @@ import moment from 'moment'
 
 export default {
   props: {
-    news: Array,
+    news: [],
   },
   filters: {
     time: function (date) {
