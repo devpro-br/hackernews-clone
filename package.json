@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "start": "concurrently -s -k -n mock,serve 'npm run mock' 'npm run serve'",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --no-fix",
     "lint:fix": "vue-cli-service lint",
@@ -26,6 +27,7 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
     "body-parser": "^1.19.0",
+    "concurrently": "6.2.1",
     "cors": "^2.8.5",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
