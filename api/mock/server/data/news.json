@@ -2,38 +2,40 @@
   {
     "author": {
       "avatar": "https://avatars.githubusercontent.com/u/962233?v=4",
-      "id": 1,
-      "name": "huogerac"
+      "id": 10,
+      "name": "Roger",
+      "username": "huogerac"
     },
     "created_at": "2021-01-11T11:32:28+00:00",
-    "description": "string",
-    "id": 42,
+    "description": "todo: Adicionar detalhes da notícia",
+    "id": 1,
     "title": "Confraria DevPro faz setup de projeto VueJS",
-    "reactions": 42,
-    "comments": 42
+    "comments_count": 42
   },
   {
     "author": {
       "avatar": "http://example.com/img/avatar/jose_thumb.png",
-      "id": 2,
-      "name": "John Doe"
+      "id": 20,
+      "name": "John Doe",
+      "username": "johndoe"
     },
     "created_at": "2021-01-11T11:32:28+00:00",
-    "description": "string",
-    "id": 42,
-    "title": "Python is a great option for backend and APIs"
+    "description": "todo: Adicionar detalhes da notícia",
+    "id": 2,
+    "title": "Python is a great option for backend and APIs",
+    "comments_count": 0
   },
   {
     "author": {
       "avatar": "http://example.com/img/avatar/jose_thumb.png",
-      "id": 3,
-      "name": "vyrotek"
+      "id": 30,
+      "name": "Vyvian Rotek",
+      "username": "vyrotek"
     },
     "created_at": "2021-10-05T21:32:23+00:00",
-    "description": "string",
-    "id": 42,
+    "description": "-",
+    "id": 3,
     "title": "Image Sharing. No Bullshit",
-    "reactions": 149,
-    "comments": 112
+    "comments_count": 30
   }
 ]

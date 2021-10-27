@@ -1,7 +1,7 @@
 openapi: 3.0.2
 
 info:
-  version: 0.0.1
+  version: 0.0.2
   title: Hackernews Mock API
   description: Mock API
 
@@ -19,12 +19,32 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/News'
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/News'
 
 components:
   schemas:
+    Author:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: John Doe
+        username:
+          type: string
+          example: johndoe
+        avatar:
+          type: string
+          example: http://example.com/img/avatar/jose_thumb.png
+          nullable: true
+
     News:
       type: object
       properties:
@@ -36,7 +56,33 @@ components:
           example: Python is a great option for backend and APIs
         description:
           type: string
+          example: This is along text within more detailed information about the news
           nullable: true
+        author:
+          $ref: '#/components/schemas/Author'
+        comments_count:
+          type: integer
+          example: 1
+          nullable: true
+        comments:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/Comment'
+        created_at:
+          type: string
+          format: date-time
+          example: 2021-01-11T11:32:28Z
+
+    Comment:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 100
+        text:
+          type: string
+          example: This is an awesome news
         created_at:
           type: string
           format: date-time
