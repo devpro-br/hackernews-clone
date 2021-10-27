@@ -8,8 +8,11 @@
           </v-list-item-title>
           <v-list-item-subtitle>
             by {{ item.author.name }} | {{ item.date | time }} |
-            {{ item.comments_count }} comentários</v-list-item-subtitle
-          >
+            <span v-if="item.comments_count"
+              >{{ item.comments_count }} comentários</span
+            >
+            <span v-else>Nenhum comentário</span>
+          </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
     </v-list>
