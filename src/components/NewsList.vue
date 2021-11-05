@@ -7,7 +7,9 @@
             #{{ item.id }} {{ item.title }}
           </v-list-item-title>
           <v-list-item-subtitle>
-            by {{ item.author.name }} | {{ item.created_at | time }} |
+            <span v-if="item.author">
+              by {{ item.author.name }} | {{ item.created_at | time }} |
+            </span>
             <span v-if="item.comments_count"
               >{{ item.comments_count }} comentários</span
             >
