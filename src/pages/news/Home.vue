@@ -13,10 +13,10 @@
     <v-btn
       color="red"
       dark
-      elevation="2"
+      elevation="1"
       absolute
       x-large
-      top
+      bottom
       right
       fab
       @click="showCreateNewsDialog = true"
