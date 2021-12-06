@@ -11,11 +11,11 @@
 
     <!-- Create News Dialog -->
     <v-btn
-      color="red"
+      color="primary"
       dark
       elevation="2"
       absolute
-      x-large
+      large
       top
       right
       fab

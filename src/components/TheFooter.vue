@@ -11,6 +11,19 @@
       >
         {{ apiBaseUrl }} — <strong>{{ version }}</strong> -
         {{ nodeEnv }}
+        <p>
+          <v-btn
+            link
+            small
+            href="https://github.com/confraria-devpro/hackernews-clone"
+            target="_blank"
+            text
+            color="white"
+          >
+            <span class="mr-2">confrarianews Github</span>
+            <v-icon>fab fa-github</v-icon>
+          </v-btn>
+        </p>
       </v-col>
     </v-row>
   </v-footer>

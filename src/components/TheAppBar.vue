@@ -5,27 +5,27 @@
         alt="Vuetify Logo"
         class="shrink mr-2"
         contain
-        src="../assets/logo.jpg"
+        src="../assets/logo-confraria-white.png"
         transition="scale-transition"
-        width="150"
+        width="40"
       />
     </div>
 
+    <v-toolbar-title>Confraria News</v-toolbar-title>
+
     <v-spacer></v-spacer>
 
-    <v-btn
-      href="https://github.com/confraria-devpro/hackernews-clone"
-      target="_blank"
-      text
-    >
-      <span class="mr-2">confrarianews Github</span>
-      <v-icon>fab fa-github</v-icon>
-    </v-btn>
+    <v-btn plain @click="login">Login</v-btn>
   </v-app-bar>
 </template>
 
 <script>
 export default {
   data: () => ({}),
+  methods: {
+    login() {
+      this.$router.push({ name: 'login' })
+    },
+  },
 }
 </script>
