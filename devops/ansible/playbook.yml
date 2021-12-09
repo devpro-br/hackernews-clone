@@ -1,0 +1,7 @@
+---
+- hosts: [production]
+  user: ubuntu
+  become: yes
+  become_user: root
+  roles:
+    - { role: frontend, tags: [frontend] }

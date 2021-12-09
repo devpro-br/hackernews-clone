@@ -1,0 +1,26 @@
+---
+- name: Login into Github Docker Image Registry
+  shell: 'docker login https://ghcr.io -u $REPO_OWNER -p $REPO_CR_PAT'
+  environment:
+    REPO_OWNER: '{{ repo_owner }}'
+    REPO_CR_PAT: '{{ repo_cr_pat }}'
+
+- name: 'Pull Docker Image {{ repo_gh_package }}:{{ repo_gh_version }}'
+  docker_image:
+    name: '{{ repo_gh_package }}'
+    tag: '{{ repo_gh_version }}'
+    state: present
+    source: pull
+    force_source: yes
+
+- name: 'Start the frontend container: {{ repo_gh_version }}'
+  docker_container:
+    name: '{{ project_name }}-{{ project_version }}'
+    image: '{{ repo_gh_package }}:{{ repo_gh_version }}'
+    state: started
+    recreate: yes
+    network_mode: host
+    ports:
+      - '8080:{{ app_port }}'
+    env:
+      VUE_APP_API_BASE_URL: '/'

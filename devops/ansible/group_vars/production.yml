@@ -1,0 +1,9 @@
+---
+project_name: confrarianews
+project_version: production
+app_port: 8080
+
+repo_owner: confraria-devpro
+repo_cr_pat: ******
+repo_gh_package: 'ghcr.io/{{ repo_owner }}/hackernews-clone'
+repo_gh_version: main
