@@ -1,7 +1,16 @@
 {
-  "name": "hackernews-clone2",
+  "name": "hackernews-clone",
   "version": "0.1.1",
-  "private": true,
+  "author": "Roger Camargo",
+  "homepage": "http://confraria-news.billcode.com.br",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/confraria-devpro/hackernews-clone/issues"
+  },
+  "engines": {
+    "npm": ">=6.0.0",
+    "node": ">=14.0.0"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "start": "concurrently -s -k -n mock,serve 'npm run mock' 'npm run serve'",
