@@ -9,20 +9,47 @@
           <h1 class="pa-6 pt-12 grey--text text--darken-2">
             Log in to Confraria News
           </h1>
-          <p class="pt-4">
+
+          <v-form v-model="valid">
+            <v-text-field
+              v-model="username"
+              label="E-Mail"
+              :rules="usernameRules"
+              required
+              outlined
+              append-icon="fa-user"
+            ></v-text-field>
+            <v-text-field
+              v-model="password"
+              label="Password"
+              :rules="passwordRules"
+              required
+              outlined
+              append-icon="fa-key"
+              type="password"
+              v-on:keyup.enter="login"
+            ></v-text-field>
             <v-btn
-              :loading="loading"
-              rounded
-              color="grey darken-3"
-              dark
+              color="secondary"
+              block
               x-large
               @click="login"
+              :disabled="!valid"
+              >Login</v-btn
             >
-              <v-icon class="white--text pr-2">fab fa-github</v-icon>
-              <span class="white--text text-none">Continue with GitHub</span>
+          </v-form>
+
+          <p class="pa-2">
+            <span class="grey--text text--darken-3 text-none"
+              >Not registered?</span
+            >
+            <v-btn text @click="signup">
+              <span class="grey--text text--darken-3 text-none"
+                >Create Account</span
+              >
             </v-btn>
           </p>
-          <p>
+          <p class="pa-2">
             <v-btn text @click="home">
               <v-icon class="pr-2">fas fa-angle-left</v-icon>
               <span class="grey--text text--darken-3 text-none">Back home</span>
@@ -40,17 +67,29 @@ import ApiAuth from '@/api/auth.api.js'
 export default {
   data: () => ({
     loading: false,
+    valid: false,
+    username: '',
+    password: '',
+    usernameRules: [
+      (v) => !!v || 'E-Mail is required',
+      (v) => v.indexOf('@') != -1 || 'Invalid E-Mail',
+    ],
+    passwordRules: [(v) => !!v || 'Password is required'],
   }),
   methods: {
     login() {
       this.loading = true
-      ApiAuth.login('confraria', 'confraria').then((data) => {
+      const { username, password } = this
+      ApiAuth.login(username, password).then((data) => {
         window.localStorage.setItem('loggedUser', JSON.stringify(data))
         this.home()
       })
     },
     home() {
       this.$router.push({ name: 'home' })
+    },
+    signup() {
+      this.$router.push({ name: 'signup' })
     },
   },
 }
