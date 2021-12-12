@@ -43,6 +43,11 @@ export default {
     showCreateNewsDialog: false,
     news: [],
   }),
+  computed: {
+    loggedUser() {
+      return this.$store.getters['auth/getLoggedUser']
+    },
+  },
   methods: {
     getNews() {
       this.loading = true
@@ -55,6 +60,7 @@ export default {
   },
   created() {
     this.getNews()
+    this.$store.dispatch('auth/loadLoggedUser')
   },
   components: {
     NewsList,

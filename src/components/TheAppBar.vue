@@ -14,18 +14,43 @@
     <v-toolbar-title>Confraria News</v-toolbar-title>
 
     <v-spacer></v-spacer>
-
-    <v-btn plain @click="login">Login</v-btn>
+    <the-avatar
+      v-if="user"
+      :name="user.name"
+      :avatarUrl="user.avatar"
+    ></the-avatar>
+    <span class="px-2 text-capitalize">{{ nameShort }}</span>
+    <v-btn v-if="!user" plain @click="login">Login or Create account</v-btn>
+    <v-btn v-else plain @click="logout">Logout</v-btn>
   </v-app-bar>
 </template>
 
 <script>
+import TheAvatar from '@/components/TheAvatar.vue'
+
 export default {
+  props: {
+    user: null,
+  },
   data: () => ({}),
   methods: {
     login() {
       this.$router.push({ name: 'login' })
     },
+    logout() {
+      this.$router.push({ name: 'login' })
+    },
+  },
+  computed: {
+    nameShort() {
+      if (!this.user) {
+        return ''
+      }
+      return this.user.name.split(' ')[0]
+    },
+  },
+  components: {
+    TheAvatar,
   },
 }
 </script>

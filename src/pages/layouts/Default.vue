@@ -4,6 +4,15 @@ import TheAppBar from '@/components/TheAppBar.vue'
 
 export default {
   data: () => ({}),
+  computed: {
+    loggedUser() {
+      return this.$store.getters['auth/getLoggedUser'] || {}
+    },
+  },
+  created() {
+    console.log('default.created()')
+    this.$store.dispatch('auth/loadLoggedUser')
+  },
   components: {
     TheFooter,
     TheAppBar,
@@ -15,7 +24,7 @@ export default {
 
 <template>
   <v-main>
-    <the-app-bar />
+    <the-app-bar :user="loggedUser.auth" />
     <router-view />
     <the-footer />
   </v-main>
