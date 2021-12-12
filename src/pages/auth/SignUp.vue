@@ -21,6 +21,8 @@
               required
               outlined
               append-icon="fa-envelope"
+              persistent-hint
+              :error-messages="usernameErrors"
             ></v-text-field>
 
             <v-text-field
@@ -68,6 +70,7 @@
               x-large
               @click="signup"
               :disabled="!valid"
+              :loading="loading"
               >Create my account</v-btn
             >
           </v-form>
@@ -116,6 +119,7 @@ export default {
       (v) => v.indexOf('@') != -1 || 'Invalid E-Mail',
     ],
     passwordRules: [(v) => !!v || 'Password is required'],
+    usernameTaken: null,
     snackbar_text: '',
     snackbar: false,
   }),
@@ -132,6 +136,12 @@ export default {
       }
       return 'error'
     },
+    usernameErrors() {
+      if (this.usernameTaken && this.username == this.usernameTaken) {
+        return [`${this.username} already taken.`]
+      }
+      return []
+    },
   },
   methods: {
     signup() {
@@ -140,12 +150,15 @@ export default {
       const email = username
       ApiAuth.signup(username, password, email, name, avatar)
         .then((response) => {
+          this.loading = false
           this.$store.dispatch('auth/setEmailSaved', response.data.email)
           this.$router.push({ name: 'signupSuccess' })
         })
         .catch((error) => {
+          this.loading = false
           const response = error.response
           if (response.status == 409) {
+            this.usernameTaken = this.username
             this.snackbar_text = `${response.data.detail}`
             this.snackbar = true
             return
