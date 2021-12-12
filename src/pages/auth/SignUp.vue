@@ -140,8 +140,8 @@ export default {
       const email = username
       ApiAuth.signup(username, password, email, name, avatar)
         .then((response) => {
-          console.log(response)
-          this.$router.push({ name: 'singnupSuccess' })
+          this.$store.dispatch('auth/setEmailSaved', response.data.email)
+          this.$router.push({ name: 'signupSuccess' })
         })
         .catch((error) => {
           const response = error.response

@@ -28,8 +28,18 @@ export function responseSuccess(response) {
 }
 
 export function responseError(error) {
+  let message = 'Authentication error (401)'
+  if (error.response.detail) {
+    message = error.response.detail
+  } else if (error.response.data) {
+    message = error.response.data.detail
+  }
+
   if (error.response && error.response.status == 401) {
-    router.push({ name: 'login' })
+    const urlRequested = error.config.url
+    if (urlRequested != '/api/auth/login') {
+      router.push({ name: 'login', params: { message } })
+    }
   }
   return Promise.reject(error)
 }

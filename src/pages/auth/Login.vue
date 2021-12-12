@@ -18,6 +18,7 @@
               required
               outlined
               append-icon="fa-user"
+              ref="usernameRef"
             ></v-text-field>
             <v-text-field
               v-model="password"
@@ -28,6 +29,7 @@
               append-icon="fa-key"
               type="password"
               v-on:keyup.enter="login"
+              ref="passwordRef"
             ></v-text-field>
             <v-btn
               color="secondary"
@@ -35,6 +37,7 @@
               x-large
               @click="login"
               :disabled="!valid"
+              :loading="loading"
               >Login</v-btn
             >
           </v-form>
@@ -58,15 +61,22 @@
         </div>
       </v-col>
     </v-row>
+
+    <!-- SNACKBAR TOAST -->
+    <v-snackbar v-model="snackbar" :vertical="true" :top="true">
+      {{ snackbar_text }}
+      <template v-slot:action="{ attrs }">
+        <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-container>
 </template>
 
 <script>
-import ApiAuth from '@/api/auth.api.js'
-
 export default {
   data: () => ({
-    loading: false,
     valid: false,
     username: '',
     password: '',
@@ -75,15 +85,34 @@ export default {
       (v) => v.indexOf('@') != -1 || 'Invalid E-Mail',
     ],
     passwordRules: [(v) => !!v || 'Password is required'],
+    snackbar_text: '',
+    snackbar: false,
   }),
+  computed: {
+    emailSaved() {
+      return this.$store.getters['auth/getEmailSaved']
+    },
+    loading() {
+      return this.$store.getters['auth/getLoading']
+    },
+  },
   methods: {
     login() {
-      this.loading = true
       const { username, password } = this
-      ApiAuth.login(username, password).then((data) => {
-        window.localStorage.setItem('loggedUser', JSON.stringify(data))
-        this.home()
-      })
+
+      this.$store
+        .dispatch('auth/setLoggedUser', { username, password })
+        .then(() => {
+          this.$store.dispatch('auth/setEmailSaved', username)
+          this.home()
+        })
+        .catch((error) => {
+          this.snackbar_text = error
+          if (error.response && error.response.status == 401) {
+            this.snackbar_text = error.response.data.detail
+          }
+          this.snackbar = true
+        })
     },
     home() {
       this.$router.push({ name: 'home' })
@@ -91,6 +120,15 @@ export default {
     signup() {
       this.$router.push({ name: 'signup' })
     },
+  },
+  created() {
+    this.$store.dispatch('auth/loadEmailSaved').then(() => {
+      this.$refs.usernameRef.focus()
+      if (this.emailSaved) {
+        this.username = this.emailSaved
+        this.$refs.passwordRef.focus()
+      }
+    })
   },
 }
 </script>
