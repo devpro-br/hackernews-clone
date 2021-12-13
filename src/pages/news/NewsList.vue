@@ -19,23 +19,16 @@
       top
       right
       fab
-      @click="showCreateNewsDialog = true"
+      @click="createNews"
     >
       <v-icon class="px-2">fas fa-plus</v-icon>
     </v-btn>
-    <news-create-dialog
-      :showDialog="showCreateNewsDialog"
-      @onClose="showCreateNewsDialog = false"
-      @onCreated="getNews"
-    >
-    </news-create-dialog>
   </v-container>
 </template>
 
 <script>
 import ApiNews from '@/api/news.api.js'
 import NewsList from '@/components/NewsList'
-import NewsCreateDialog from '@/components/NewsCreateDialog'
 
 export default {
   data: () => ({
@@ -57,6 +50,9 @@ export default {
         this.loading = false
       })
     },
+    createNews() {
+      this.$router.push({ name: 'news.create' })
+    },
   },
   created() {
     this.getNews()
@@ -64,7 +60,6 @@ export default {
   },
   components: {
     NewsList,
-    NewsCreateDialog,
   },
 }
 </script>

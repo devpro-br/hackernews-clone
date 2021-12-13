@@ -53,7 +53,7 @@
             </v-btn>
           </p>
           <p class="pa-2">
-            <v-btn text @click="home">
+            <v-btn text @click="newsList">
               <v-icon class="pr-2">fas fa-angle-left</v-icon>
               <span class="grey--text text--darken-3 text-none">Back home</span>
             </v-btn>
@@ -71,7 +71,7 @@
             </v-btn>
           </p>
           <p class="pa-2">
-            <v-btn text @click="home">
+            <v-btn text @click="newsList">
               <v-icon class="pr-2">fas fa-angle-left</v-icon>
               <span class="grey--text text--darken-3 text-none">Back home</span>
             </v-btn>
@@ -125,7 +125,7 @@ export default {
         .dispatch('auth/setLoggedUser', { username, password })
         .then(() => {
           this.$store.dispatch('auth/setEmailSaved', username)
-          this.home()
+          this.newsList()
         })
         .catch((error) => {
           this.snackbar_text = error
@@ -137,10 +137,10 @@ export default {
     },
     logout() {
       this.$store.dispatch('auth/clearLoggedUser')
-      this.home()
+      this.newsList()
     },
-    home() {
-      this.$router.push({ name: 'home' })
+    newsList() {
+      this.$router.push({ name: 'news.list' })
     },
     signup() {
       this.$router.push({ name: 'signup' })

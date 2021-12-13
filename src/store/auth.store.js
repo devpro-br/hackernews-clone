@@ -42,18 +42,12 @@ const authModule = {
   actions: {
     async setLoggedUser(state, { username, password }) {
       try {
-        console.log('1')
         state.commit('setLoading', true)
-        console.log('2')
         const user = await AuthApi.login(username, password)
-        console.log('3', user)
         state.commit('setLoggedUser', user)
-        console.log('4')
         window.localStorage.setItem('loggedUser', JSON.stringify(user))
-        console.log('5')
         state.commit('setLoading', false)
       } catch (err) {
-        console.log('6', err)
         state.commit('setLoggedUser', null)
         state.commit('setLoading', false)
         return Promise.reject(err)

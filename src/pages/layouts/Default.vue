@@ -10,7 +10,6 @@ export default {
     },
   },
   created() {
-    console.log('default.created()')
     this.$store.dispatch('auth/loadLoggedUser')
   },
   components: {

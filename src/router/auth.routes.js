@@ -12,16 +12,25 @@ export default [
         path: 'login',
         name: 'login',
         component: Login,
+        meta: {
+          permission: '*',
+        },
       },
       {
         path: 'signup',
         name: 'signup',
         component: SignUp,
+        meta: {
+          permission: '*',
+        },
       },
       {
         path: 'signup/success',
         name: 'signupSuccess',
         component: SignUpSuccess,
+        meta: {
+          permission: '*',
+        },
       },
     ],
   },
